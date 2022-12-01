@@ -4,7 +4,7 @@
 
 Дипломная работа предсталяет собой сервис, в котором можно найти фильмы по запросу и сохранить в личном кабинете.
 
-## В API должно быть 7 роутов: <img src="https://media.giphy.com/media/l4vdxJO98HZpLbtb2c/giphy.gif" width="70" height="70">
+## В API должно быть 7 роутов: <img src="https://media.giphy.com/media/l4vdxJO98HZpLbtb2c/giphy.gif" width="90" height="90">
 
 - возвращает информацию о пользователе (email и имя)
 
@@ -33,3 +33,5 @@
 - проверяет переданные в теле почту и пароль и возвращает JWT
 
   **POST /signin**
+
+  ## Домен сервера: <img src="https://media.giphy.com/media/lhPfjSaW3bir1xMTSW/giphy.gif" width="90" height="90">
