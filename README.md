@@ -34,4 +34,10 @@
 
   **POST /signin**
 
-  ## Домен сервера: <img src="https://media.giphy.com/media/lhPfjSaW3bir1xMTSW/giphy.gif" width="90" height="90">
+  ## Стек: <img src="https://media.giphy.com/media/lhPfjSaW3bir1xMTSW/giphy.gif" width="90" height="90">
+
+  - Node.js
+  - Express
+  - MongoDB
+
+  ## Домен сервера: <img src="https://media.giphy.com/media/owmbZ3kI545USlH5QZ/giphy.gif" width="90" height="90">
