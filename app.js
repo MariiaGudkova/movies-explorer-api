@@ -1,11 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
-const { apiLimiter } = require('./utils/rateLimiter');
-const { handleErrors } = require('./middlewares/handleErrors');
+const { errors } = require('celebrate');
+const { apiLimiter } = require('./middlewares/rateLimiter');
+const routes = require('./routes/index');
+const handleErrors = require('./middlewares/handleErrors');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 require('dotenv').config();
 
-const { PORT = 5000, MONGO_URL = 'mongodb://localhost:27017/moviesdb' } = process.env;
+const { PORT, MONGO_URL } = process.env;
 const app = express();
 
 mongoose.connect(MONGO_URL);
@@ -14,6 +17,11 @@ app.use(express.json());
 app.use(apiLimiter);
 app.use(helmet());
 
+app.use(requestLogger);
+app.use(routes);
+
+app.use(errorLogger);
+app.use(errors());
 app.use(handleErrors);
 
 app.listen(PORT, () => {});
