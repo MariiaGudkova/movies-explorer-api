@@ -40,4 +40,7 @@
   - Express
   - MongoDB
 
-  ## Домен сервера: <img src="https://media.giphy.com/media/owmbZ3kI545USlH5QZ/giphy.gif" width="90" height="90">
+  ## Ссылки: <img src="https://media.giphy.com/media/owmbZ3kI545USlH5QZ/giphy.gif" width="90" height="90">
+
+  - IP: 158.160.43.63
+  - Домен сервера: https://api.movies-gudkova.nomoredomains.club
