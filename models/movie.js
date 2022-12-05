@@ -63,14 +63,8 @@ const movieSchema = new mongoose.Schema({
     },
   },
   movieId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Number,
     required: true,
-    validate: (value) => {
-      if (validator.isMongoId(value.toString())) {
-        return true;
-      }
-      return false;
-    },
   },
   nameRU: {
     type: String,

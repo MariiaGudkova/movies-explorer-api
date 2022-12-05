@@ -13,7 +13,8 @@ const {
 
 const getMovies = async (req, res, next) => {
   try {
-    const movies = await Movie.find({});
+    const owner = req.user._id;
+    const movies = await Movie.find({ owner });
     res.send({ data: movies });
   } catch (e) {
     next(e);
@@ -23,7 +24,25 @@ const getMovies = async (req, res, next) => {
 const createMovie = async (req, res, next) => {
   try {
     const { user } = req;
-    const movie = await Movie.create({ owner: user._id, ...req.body });
+    const {
+      country, director, duration,
+      year, description, image, trailerLink,
+      thumbnail, movieId, nameRU, nameEN,
+    } = req.body;
+    const movie = await Movie.create({
+      country,
+      director,
+      duration,
+      year,
+      description,
+      image,
+      trailerLink,
+      thumbnail,
+      owner: user._id,
+      movieId,
+      nameRU,
+      nameEN,
+    });
     res.send({ data: movie });
   } catch (e) {
     if (e instanceof mongoose.Error.ValidationError) {

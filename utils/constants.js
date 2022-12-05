@@ -19,6 +19,8 @@ const AUTHORIZATION_ERROR_TEXT = 'Incorrect email or password';
 const WRONG_PATH_ERROR_TEXT = 'Wrong path passed';
 const SERVER_ERROR_TEXT = 'Server error';
 
+const urlRegex = /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i;
+
 module.exports = {
   BAD_REQUEST_ERROR_CODE,
   UNAUTHORIZATION_ERROR_CODE,
@@ -39,4 +41,5 @@ module.exports = {
   AUTHORIZATION_ERROR_TEXT,
   WRONG_PATH_ERROR_TEXT,
   SERVER_ERROR_TEXT,
+  urlRegex,
 };

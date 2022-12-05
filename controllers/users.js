@@ -1,9 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
-
-const { DEV_JWT } = process.env;
+const devConfig = require('../devConfig.json');
 const User = require('../models/user');
 const BadRequestError = require('../errors/bad_request_err');
 const ConflictError = require('../errors/conflict_err');
@@ -45,7 +44,7 @@ const loginUser = async (req, res, next) => {
     const { NODE_ENV, JWT_SECRET } = process.env;
     const { email, password } = req.body;
     const user = await User.findUserByCredentials(email, password);
-    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : DEV_JWT, { expiresIn: '7d' });
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : devConfig.devSecret, { expiresIn: '7d' });
     res.send({ token });
   } catch (e) {
     next(e);
@@ -84,6 +83,10 @@ const updateUserInfo = async (req, res, next) => {
     }
     if (e instanceof mongoose.Error.DocumentNotFoundError) {
       next(new NotFoundError(ID_NOT_FOUND_ERROR_TEXT));
+      return;
+    }
+    if (e.code === 11000) {
+      next(new ConflictError(EMAIL_EXIST_ERROR_TEXT));
       return;
     }
     next(e);

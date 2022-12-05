@@ -1,10 +1,11 @@
 const { celebrate, Joi } = require('celebrate');
+const { urlRegex } = require('../utils/constants');
 
 const signUpValidation = () => celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
-    name: Joi.string().min(2).max(30),
+    name: Joi.string().required().min(2).max(30),
   }),
 });
 
@@ -17,8 +18,8 @@ const signInValidation = () => celebrate({
 
 const updateUserInfoValidation = () => celebrate({
   body: Joi.object().keys({
-    email: Joi.string().email(),
-    name: Joi.string().min(2).max(30),
+    email: Joi.string().required().email(),
+    name: Joi.string().required().min(2).max(30),
   }),
 });
 
@@ -29,10 +30,10 @@ const addMovieValidation = () => celebrate({
     duration: Joi.number().required(),
     year: Joi.string().required(),
     description: Joi.string().required(),
-    image: Joi.string().required().regex(/[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i),
-    trailerLink: Joi.string().required().regex(/[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i),
-    thumbnail: Joi.string().required().regex(/[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i),
-    movieId: Joi.string().length(24).hex().required(),
+    image: Joi.string().required().regex(urlRegex),
+    trailerLink: Joi.string().required().regex(urlRegex),
+    thumbnail: Joi.string().required().regex(urlRegex),
+    movieId: Joi.number().required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
   }),
