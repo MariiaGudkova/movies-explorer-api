@@ -5,21 +5,27 @@ const NOTFOUND_ERROR_CODE = 404;
 const CONFLICT_ERROR_CODE = 409;
 const SERVER_ERROR_CODE = 500;
 
-const INCORRECT_DATA_CREATE_USER_ERROR_TEXT = 'Incorrect data was transmitted when creating a user';
-const INCORRECT_DATA_UPDATE_USER_ERROR_TEXT = 'Incorrect data was transmitted when updating the profile';
-const EMAIL_EXIST_ERROR_TEXT = 'A user with this email already exists';
-const INVALID_ID_USER_ERROR_TEXT = 'Invalid user _id passed';
-const ID_NOT_FOUND_USER_ERROR_TEXT = 'The user by the specified _id was not found';
-const INCORRECT_DATA_CREATE_MOVIE_ERROR_TEXT = 'Incorrect data was transmitted when creating the movie';
-const NOT_ENOUGH_RIGHTS_TO_DELETE_TEXT = 'Insufficient rights to delete the card';
-const INVALID_ID_MOVIE_ERROR_TEXT = 'Invalid movie _id was passed';
-const ID_NOT_FOUND_MOVIE_ERROR_TEXT = 'Movie with the specified _id was not found';
-const SUCCSSES_DELETE_MOVIE_TEXT = 'Movie deleted';
-const AUTHORIZATION_ERROR_TEXT = 'Incorrect email or password';
-const WRONG_PATH_ERROR_TEXT = 'Wrong path passed';
-const SERVER_ERROR_TEXT = 'Server error';
+const INCORRECT_DATA_CREATE_USER_ERROR_TEXT = 'Переданы некорректные данные при создании пользователя';
+const INCORRECT_DATA_UPDATE_USER_ERROR_TEXT = 'Переданы некорректные данные при обновлении профиля';
+const EMAIL_EXIST_ERROR_TEXT = 'Пользователь с таким email уже сушествует';
+const INVALID_ID_USER_ERROR_TEXT = 'Передан неверный _id пользователя';
+const ID_NOT_FOUND_USER_ERROR_TEXT = 'Пользователь по указанному _id не найден';
+const INCORRECT_DATA_CREATE_MOVIE_ERROR_TEXT = 'Переданы некорректные данные при создании фильма';
+const NOT_ENOUGH_RIGHTS_TO_DELETE_TEXT = 'Недостаточно прав для удаления фильма';
+const INVALID_ID_MOVIE_ERROR_TEXT = 'Передан неверный _id фильма';
+const ID_NOT_FOUND_MOVIE_ERROR_TEXT = 'Фильм по указанному _id не найден';
+const SUCCSSES_DELETE_MOVIE_TEXT = 'Фильм успешно удален';
+const AUTHORIZATION_ERROR_TEXT = 'Неверные email или пароль';
+const WRONG_PATH_ERROR_TEXT = 'Передан неправильный путь';
+const SERVER_ERROR_TEXT = 'На сервере произошла ошибка';
 
 const urlRegex = /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i;
+
+const allowedCors = [
+  'http://localhost:3000',
+];
+
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 module.exports = {
   BAD_REQUEST_ERROR_CODE,
@@ -42,4 +48,6 @@ module.exports = {
   WRONG_PATH_ERROR_TEXT,
   SERVER_ERROR_TEXT,
   urlRegex,
+  allowedCors,
+  DEFAULT_ALLOWED_METHODS,
 };

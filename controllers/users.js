@@ -25,7 +25,9 @@ const registerUser = async (req, res, next) => {
       email, password: hash, name,
     });
     const { password: p, ...data } = JSON.parse(JSON.stringify(user));
-    res.send({ data });
+    const { NODE_ENV, JWT_SECRET } = process.env;
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : devConfig.devSecret, { expiresIn: '7d' });
+    res.send({ data, token });
   } catch (e) {
     if (e instanceof mongoose.Error.ValidationError) {
       next(new BadRequestError(INCORRECT_DATA_CREATE_USER_ERROR_TEXT));
