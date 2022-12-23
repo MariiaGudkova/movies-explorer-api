@@ -30,7 +30,7 @@ const addMovieValidation = () => celebrate({
     duration: Joi.number().required(),
     year: Joi.string().required(),
     description: Joi.string().required(),
-    image: Joi.string().required().regex(urlRegex),
+    imageUrl: Joi.string().required().regex(urlRegex),
     trailerLink: Joi.string().required().regex(urlRegex),
     thumbnail: Joi.string().required().regex(urlRegex),
     movieId: Joi.number().required(),
