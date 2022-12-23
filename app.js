@@ -7,6 +7,7 @@ const { apiLimiter } = require('./middlewares/rateLimiter');
 const routes = require('./routes/index');
 const handleErrors = require('./middlewares/handleErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { handleCors } = require('./middlewares/handleCors');
 const devConfig = require('./devConfig.json');
 
 const { PORT = devConfig.port, MONGO_URL = devConfig.mongoUrl } = process.env;
@@ -15,6 +16,7 @@ const app = express();
 mongoose.connect(MONGO_URL);
 
 app.use(express.json());
+app.use(handleCors);
 app.use(requestLogger);
 app.use(apiLimiter);
 app.use(helmet());
