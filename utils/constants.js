@@ -7,9 +7,10 @@ const SERVER_ERROR_CODE = 500;
 
 const INCORRECT_DATA_CREATE_USER_ERROR_TEXT = 'Переданы некорректные данные при создании пользователя';
 const INCORRECT_DATA_UPDATE_USER_ERROR_TEXT = 'Переданы некорректные данные при обновлении профиля';
-const EMAIL_EXIST_ERROR_TEXT = 'Пользователь с таким email уже сушествует';
+const EMAIL_EXIST_ERROR_TEXT = 'Пользователь с таким email уже существует';
 const INVALID_ID_USER_ERROR_TEXT = 'Передан неверный _id пользователя';
 const ID_NOT_FOUND_USER_ERROR_TEXT = 'Пользователь по указанному _id не найден';
+const SUCCSSES_UPDATE_USER_TEXT = 'Профайл успешно обновлен';
 const INCORRECT_DATA_CREATE_MOVIE_ERROR_TEXT = 'Переданы некорректные данные при создании фильма';
 const NOT_ENOUGH_RIGHTS_TO_DELETE_TEXT = 'Недостаточно прав для удаления фильма';
 const INVALID_ID_MOVIE_ERROR_TEXT = 'Передан неверный _id фильма';
@@ -39,6 +40,7 @@ module.exports = {
   EMAIL_EXIST_ERROR_TEXT,
   INVALID_ID_USER_ERROR_TEXT,
   ID_NOT_FOUND_USER_ERROR_TEXT,
+  SUCCSSES_UPDATE_USER_TEXT,
   INCORRECT_DATA_CREATE_MOVIE_ERROR_TEXT,
   NOT_ENOUGH_RIGHTS_TO_DELETE_TEXT,
   INVALID_ID_MOVIE_ERROR_TEXT,
