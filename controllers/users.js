@@ -13,6 +13,7 @@ const {
   EMAIL_EXIST_ERROR_TEXT,
   INVALID_ID_ERROR_TEXT,
   ID_NOT_FOUND_ERROR_TEXT,
+  SUCCSSES_UPDATE_USER_TEXT,
 } = require('../utils/constants');
 
 const registerUser = async (req, res, next) => {
@@ -77,7 +78,7 @@ const updateUserInfo = async (req, res, next) => {
       new: true,
       runValidators: true,
     }).orFail();
-    res.send({ data: user });
+    res.send({ data: user, message: SUCCSSES_UPDATE_USER_TEXT });
   } catch (e) {
     if (e instanceof mongoose.Error.ValidationError || e instanceof mongoose.Error.CastError) {
       next(new BadRequestError(INCORRECT_DATA_UPDATE_USER_ERROR_TEXT));
