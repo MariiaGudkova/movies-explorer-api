@@ -18,7 +18,7 @@ const ID_NOT_FOUND_MOVIE_ERROR_TEXT = 'Фильм по указанному _id 
 const SUCCSSES_DELETE_MOVIE_TEXT = 'Фильм успешно удален';
 const AUTHORIZATION_ERROR_TEXT = 'Неверные email или пароль';
 const WRONG_PATH_ERROR_TEXT = 'Передан неправильный путь';
-const SERVER_ERROR_TEXT = 'На сервере произошла ошибка';
+const SERVER_ERROR_TEXT = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
 
 const urlRegex = /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i;
 
