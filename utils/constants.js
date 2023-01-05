@@ -23,7 +23,8 @@ const SERVER_ERROR_TEXT = 'Во время запроса произошла о�
 const urlRegex = /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/i;
 
 const allowedCors = [
-  'http://localhost:3000',
+  'http://movies-gudkova.nomoredomains.club',
+  'https://movies-gudkova.nomoredomains.club',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
